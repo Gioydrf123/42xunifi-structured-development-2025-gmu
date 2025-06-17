@@ -5,17 +5,21 @@ int count_segments(const int *arr, int size)
 	--size;
 	while (size >= 0)
 	{
-		if(arr[size--] != -1 && size+1 >= 0)
+		if(arr[size] != -1 && size+1 >= 0)
 		{
-			if(arr[size+1] >= arr[size--] && size+1 >= 0)
+			size--;
+			if(arr[size+1] >= arr[size] && size+1 >= 0)
 			{
-				if(arr[size+1] >= arr[size--] && size+1 >= 0)
+				size--;
+				if(arr[size+1] >= arr[size] && size+1 >= 0)
 				{
+					size--;
 					++segment;
 					while(arr[size] != -1)
 					{
-						if (size >= 0 && arr[size]!=-1 && arr[size+1] <= arr[size--])
+						if (size >= 0 && arr[size]!=-1 && arr[size+1] <= arr[size])
 						{
+							size--;
 							--segment;
 							break ;
 						}
