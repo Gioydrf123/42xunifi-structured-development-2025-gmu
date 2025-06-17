@@ -52,7 +52,11 @@ const char* standard_mapper(int score)
 void map_scores(const int *scores, int size, GradeMapper mapper, const char **mapped_grades)
 {
 	while(size-- >= 0)
-		*mapped_grades++ = mapper(*scores++);
+	{
+		*mapped_grades = mapper(*scores);
+		mapped_grades++;
+		scores++;
+	}
 }
 
 //#include <stdio.h>
