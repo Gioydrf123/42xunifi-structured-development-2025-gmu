@@ -35,8 +35,11 @@ PwStatus validate_password(const char *new_pw, const char *curr_pw)
                 s++;
             }
         }
-		if (*new_pw != *curr_pw++)
+		if (*new_pw != *curr_pw)
+		{
+			curr_pw++;
 			isnotequal = true;
+		}
 		++len;
 		new_pw++;
 	}
